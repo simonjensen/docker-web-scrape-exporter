@@ -1,0 +1,12 @@
+{
+  "name": "web-scrape-exporter",
+  "version": "0.0.1",
+  "description": "Will scrape a webpage and return content matching a CSS selector. Intented to be used with Prometheus.",
+  "main": "app.js",
+  "author": "Simon Jensen <hello@simon-jensen.net>",
+  "dependencies": {
+    "cheerio": "1.0.0-rc.3",
+    "express": "^4.17.1",
+    "request": "2.88.0"
+  }
+}
