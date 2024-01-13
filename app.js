@@ -7,7 +7,6 @@ const cheerio = require("cheerio");
 const port = process.env.PORT;
 const url = process.env.URL;
 const cssSelector = process.env.CSS_SELECTOR;
-const cssSelectorContext = process.env.CSS_SELECTOR_CONTEXT;
 const prometheusMetricName = process.env.PROMETHEUS_METRIC_NAME;
 
 // @see: https://petermolnar.net/linkedin-public-settings-ignored/
@@ -23,26 +22,26 @@ const options = {
 
 app.get("/", function (request, response) {
 	console.log("Downloading content: " + options.url);
-	
+
 	// Download HTML content
-	httpRequest(options, function(error, httpResponse, body) {
+	httpRequest(options, function (error, httpResponse, body) {
 		if (error) {
-			
+
 			console.log(error);
 			response.status(404).send();
-			
+
 		} else {
-			
+
 			console.log("Response code: " + httpResponse.statusCode);
-			
+
 			// Parse using cheerio
 			console.log("Parsing content ...");
 			const $ = cheerio.load(body);
-			
+
 			// Display the value
 			console.log("Fetching selected content ...");
-			let selectedContent = $(cssSelector, cssSelectorContext).text();
-			
+			let selectedContent = $(cssSelector).text();
+
 			if (selectedContent) {
 				selectedContent = selectedContent.match(/\d+/);
 				console.log("Selected content: " + selectedContent);
@@ -50,11 +49,11 @@ app.get("/", function (request, response) {
 				console.log("Unable to fetch selected content!")
 				selectedContent = 0;
 			}
-			
+
 			response.send(prometheusMetricName + " " + selectedContent + "\n");
 		}
 	});
-	
+
 });
 
 app.listen(port, () =>
