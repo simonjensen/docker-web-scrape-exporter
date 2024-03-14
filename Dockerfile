@@ -2,19 +2,19 @@ FROM node:21-alpine
 
 WORKDIR /app
 
-COPY package*.json ./
+COPY ./src/ ./
 
 RUN npm set progress=false && \
     npm config set depth 0 && \
-    npm install --omit=dev
+    npm install --omit=dev && \
+    npm audit fix
 
 COPY app.js /app/
 
-ENV PORT 3001
 ENV URL ""
 ENV CSS_SELECTOR ""
 ENV PROMETHEUS_METRIC_NAME ""
 
-EXPOSE $PORT
+EXPOSE 3000
 
-CMD [ "node", "/app/app.js" ]
+CMD [ "npm", "start" ]
