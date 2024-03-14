@@ -9,8 +9,6 @@ RUN npm set progress=false && \
     npm install --omit=dev && \
     npm audit fix
 
-COPY app.js /app/
-
 ENV URL ""
 ENV CSS_SELECTOR ""
 ENV PROMETHEUS_METRIC_NAME ""
