@@ -9,7 +9,7 @@
 Start a container in interactive mode and perform installations etc.:
 
 ```sh
-docker run -it --rm --name docker-web-scrape-exporter -v $(pwd)/src:/app -w /app -p 3000:3000 -u $(id -u ${USER}):$(id -g ${USER}) node:21-alpine sh
+docker run -it --rm --name docker-web-scrape-exporter -v $(pwd)/src:/app -w /app -p 3000:3000 -u $(id -u ${USER}):$(id -g ${USER}) node:23-alpine sh
 npm install --omit=dev
 npm audit fix
 ```
