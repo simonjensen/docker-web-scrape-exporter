@@ -1,5 +1,7 @@
 # docker-web-scrape-exporter
 
+[![Pipeline](https://github.com/simonjensen/docker-web-scrape-exporter/actions/workflows/publish.yaml/badge.svg?branch=master)](https://github.com/simonjensen/docker-web-scrape-exporter/actions/workflows/publish.yaml)
+
 > A Prometheus web scrape exporter
 
 ---
