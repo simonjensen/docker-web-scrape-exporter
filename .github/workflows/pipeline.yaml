@@ -3,6 +3,7 @@ on:
   push:
     branches:
       - "**"
+  workflow_dispatch: # Enables manual triggering the pipeline
 
 jobs:
   call-shared-workflow:
