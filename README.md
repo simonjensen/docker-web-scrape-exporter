@@ -1,17 +1,17 @@
 # docker-web-scrape-exporter
 
-[![Pipeline](https://github.com/simonjensen/docker-web-scrape-exporter/actions/workflows/publish.yaml/badge.svg?branch=master)](https://github.com/simonjensen/docker-web-scrape-exporter/actions/workflows/publish.yaml)
+[![Pipeline](https://github.com/simonjensen/docker-web-scrape-exporter/actions/workflows/pipeline.yaml/badge.svg?branch=main)](https://github.com/simonjensen/docker-web-scrape-exporter/actions/workflows/pipeline.yaml)
 
-> A Prometheus web scrape exporter
+> A Prometheus web scrape exporter - Will scrape all public available content that you can match with a CSS selector
 
 ---
 
 ## Usage
 
-Start a container in interactive mode and perform installations etc.:
+Start a container in interactive mode and perform installation, audit etc.:
 
 ```sh
-docker run -it --rm --name docker-web-scrape-exporter -v $(pwd)/src:/app -w /app -p 3000:3000 -u $(id -u ${USER}):$(id -g ${USER}) node:23-alpine sh
+docker run -it --rm --name docker-web-scrape-exporter -v $(pwd)/src:/app -w /app -p 3000:3000 -u $(id -u ${USER}):$(id -g ${USER}) node:25-alpine sh
 npm install --omit=dev
 npm audit fix
 ```
@@ -25,7 +25,7 @@ docker run -it --rm --name docker-web-scrape-exporter \
     -e CSS_SELECTOR='body > div.logged-out.env-production.page-responsive.page-profile > div.application-main > main > div.mt-4.position-sticky.top-0.d-none.d-md-block.color-bg-default.width-full.border-bottom.color-border-muted > div > div > div.Layout-main > div > nav > a:nth-child(2) > span' \
     -e PROMETHEUS_METRIC_NAME=github_repository_count \
     -p 3000:3000 \
-    docker.io/simonjensen/docker-web-scrape-exporter:latest
+    ghcr.io/simonjensen/docker-web-scrape-exporter:latest
 ```
 
 Fetch the scraped results:
