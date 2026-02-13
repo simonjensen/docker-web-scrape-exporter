@@ -1,4 +1,4 @@
-FROM node:23-alpine
+FROM docker.io/library/node:25-alpine
 
 WORKDIR /app
 
@@ -9,9 +9,9 @@ RUN npm set progress=false && \
     npm install --omit=dev && \
     npm audit fix
 
-ENV URL ""
-ENV CSS_SELECTOR ""
-ENV PROMETHEUS_METRIC_NAME ""
+ENV URL=""
+ENV CSS_SELECTOR=""
+ENV PROMETHEUS_METRIC_NAME=""
 
 EXPOSE 3000
 

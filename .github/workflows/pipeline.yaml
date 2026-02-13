@@ -1,0 +1,14 @@
+name: Pipeline
+
+on:
+  push:
+    branches:
+      - "**"
+  workflow_dispatch: # Enables manual triggering the pipeline
+
+jobs:
+  call-shared-workflow:
+    uses: simonjensen/pipelines/.github/workflows/docker.yaml@main
+    with:
+      image-name: ${{ github.repository }}
+
