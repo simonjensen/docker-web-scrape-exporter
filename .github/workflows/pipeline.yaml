@@ -1,0 +1,12 @@
+name: Pipeline
+on:
+  push:
+    branches:
+      - "**"
+
+jobs:
+  call-shared-workflow:
+    uses: simonjensen/pipelines/.github/workflows/docker.yaml@main
+    with:
+      image-name: ${{ github.repository }}
+
