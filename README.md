@@ -1,6 +1,6 @@
 # docker-web-scrape-exporter
 
-[![Pipeline](https://github.com/simonjensen/docker-web-scrape-exporter/actions/workflows/pipeline.yaml/badge.svg?branch=main)](https://github.com/simonjensen/docker-web-scrape-exporter/actions/workflows/pipeline.yaml)
+[![Pipeline](https://github.com/simonjensen/docker-web-scrape-exporter/actions/workflows/release.yaml/badge.svg?branch=main)](https://github.com/simonjensen/docker-web-scrape-exporter/actions/workflows/release.yaml)
 
 > A Prometheus web scrape exporter - Will scrape all public available content that you can match with a CSS selector
 
