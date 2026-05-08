@@ -10,7 +10,7 @@ jobs:
       contents: write
       packages: write
       id-token: write
-    uses: simonjensen/pipelines/.github/workflows/release.yaml@main
+    uses: simonjensen/pipelines/.github/workflows/release.yaml@7ab1614a4cee31e36086087d1ccbe06a5f3af253 # main
     secrets: inherit
     with:
       image-name: ${{ github.repository }}
